@@ -1,0 +1,351 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "description": "Initial dataset for Student Task Manager — Sistem Informasi academic tasks",
+    "total_tasks": 30,
+    "generated_at": "2026-10-31",
+    "schema": {
+      "id": "Unique task identifier (string, format: TASK-XXX)",
+      "title": "Task title (string)",
+      "course": "Course/subject name (string)",
+      "description": "Short task description (string)",
+      "due_date": "Deadline in YYYY-MM-DD format (string)",
+      "priority": "Task priority: Low | Medium | High (string)",
+      "status": "Task status: To Do | In Progress | Completed (string)",
+      "progress": "Completion percentage 0–100 (integer)",
+      "created_at": "Creation date in YYYY-MM-DD format (string)"
+    }
+  },
+  "tasks": [
+    {
+      "id": "TASK-001",
+      "title": "Pembuatan ERD dan Kamus Data",
+      "course": "Basis Data",
+      "description": "Rancang Entity Relationship Diagram lengkap dengan kamus data untuk sistem informasi perpustakaan kampus. Sertakan semua entitas, atribut, dan relasi antar tabel.",
+      "due_date": "2026-10-15",
+      "priority": "High",
+      "status": "Completed",
+      "progress": 100,
+      "created_at": "2026-10-01"
+    },
+    {
+      "id": "TASK-002",
+      "title": "Laporan Praktikum SQL Query Lanjutan",
+      "course": "Basis Data",
+      "description": "Buat laporan praktikum yang mencakup query JOIN, subquery, stored procedure, dan trigger pada database MySQL. Lampirkan screenshot hasil eksekusi setiap query.",
+      "due_date": "2026-10-20",
+      "priority": "Medium",
+      "status": "Completed",
+      "progress": 100,
+      "created_at": "2026-10-05"
+    },
+    {
+      "id": "TASK-003",
+      "title": "Implementasi Aplikasi CRUD dengan PHP & MySQL",
+      "course": "Pemrograman Web",
+      "description": "Bangun aplikasi manajemen data mahasiswa menggunakan PHP native dengan koneksi database MySQL. Harus mencakup fitur tambah, edit, hapus, dan tampil data dengan validasi input.",
+      "due_date": "2026-10-28",
+      "priority": "High",
+      "status": "Completed",
+      "progress": 100,
+      "created_at": "2026-10-08"
+    },
+    {
+      "id": "TASK-004",
+      "title": "Desain Mockup UI Aplikasi Mobile",
+      "course": "Interaksi Manusia dan Komputer",
+      "description": "Buat desain mockup high-fidelity aplikasi mobile e-commerce menggunakan Figma. Sertakan minimal 8 screen termasuk onboarding, home, product detail, cart, dan checkout.",
+      "due_date": "2026-10-22",
+      "priority": "High",
+      "status": "Completed",
+      "progress": 100,
+      "created_at": "2026-10-07"
+    },
+    {
+      "id": "TASK-005",
+      "title": "Analisis Kebutuhan Sistem (Functional & Non-Functional)",
+      "course": "Analisis dan Perancangan Sistem Informasi",
+      "description": "Lakukan analisis kebutuhan fungsional dan non-fungsional untuk sistem informasi akademik kampus. Gunakan teknik wawancara dan kuesioner sebagai metode pengumpulan data.",
+      "due_date": "2026-10-18",
+      "priority": "High",
+      "status": "Completed",
+      "progress": 100,
+      "created_at": "2026-10-03"
+    },
+    {
+      "id": "TASK-006",
+      "title": "Pembuatan Use Case Diagram dan Skenario",
+      "course": "Rekayasa Perangkat Lunak",
+      "description": "Buat use case diagram lengkap beserta deskripsi skenario untuk sistem manajemen inventaris. Identifikasi semua aktor, use case, relasi include dan extend.",
+      "due_date": "2026-11-05",
+      "priority": "High",
+      "status": "In Progress",
+      "progress": 75,
+      "created_at": "2026-10-20"
+    },
+    {
+      "id": "TASK-007",
+      "title": "Implementasi Framework Laravel — Autentikasi",
+      "course": "Pemrograman Web",
+      "description": "Bangun sistem autentikasi lengkap menggunakan Laravel Breeze atau Jetstream. Mencakup fitur register, login, logout, email verification, dan reset password.",
+      "due_date": "2026-11-10",
+      "priority": "High",
+      "status": "In Progress",
+      "progress": 60,
+      "created_at": "2026-10-22"
+    },
+    {
+      "id": "TASK-008",
+      "title": "Pembuatan Class Diagram Sistem",
+      "course": "Rekayasa Perangkat Lunak",
+      "description": "Rancang class diagram untuk sistem manajemen klinik menggunakan notasi UML standar. Tentukan atribut, method, visibilitas, dan hubungan antar kelas (inheritance, composition, association).",
+      "due_date": "2026-11-08",
+      "priority": "Medium",
+      "status": "In Progress",
+      "progress": 45,
+      "created_at": "2026-10-23"
+    },
+    {
+      "id": "TASK-009",
+      "title": "Preprocessing Data dan EDA (Exploratory Data Analysis)",
+      "course": "Data Mining",
+      "description": "Lakukan preprocessing dataset penjualan e-commerce yang mencakup penanganan missing value, outlier, normalisasi, dan encoding. Buat visualisasi distribusi data menggunakan Python (Pandas, Matplotlib, Seaborn).",
+      "due_date": "2026-11-12",
+      "priority": "High",
+      "status": "In Progress",
+      "progress": 55,
+      "created_at": "2026-10-25"
+    },
+    {
+      "id": "TASK-010",
+      "title": "Studi Kasus Penerapan ERP di Perusahaan Manufaktur",
+      "course": "Sistem Informasi Manajemen",
+      "description": "Analisis penerapan sistem ERP (SAP/Oracle) pada perusahaan manufaktur nasional. Bahas modul yang digunakan, manfaat, tantangan implementasi, dan dampaknya terhadap efisiensi operasional.",
+      "due_date": "2026-11-15",
+      "priority": "Medium",
+      "status": "In Progress",
+      "progress": 40,
+      "created_at": "2026-10-26"
+    },
+    {
+      "id": "TASK-011",
+      "title": "Pembuatan Prototype UI/UX Sistem Reservasi",
+      "course": "Interaksi Manusia dan Komputer",
+      "description": "Kembangkan prototype interaktif low-to-mid fidelity untuk sistem reservasi hotel menggunakan Figma atau Adobe XD. Lakukan usability testing dengan minimal 5 responden.",
+      "due_date": "2026-11-18",
+      "priority": "Medium",
+      "status": "In Progress",
+      "progress": 30,
+      "created_at": "2026-10-27"
+    },
+    {
+      "id": "TASK-012",
+      "title": "Rencana Manajemen Proyek — Gantt Chart",
+      "course": "Manajemen Proyek Sistem Informasi",
+      "description": "Buat rencana manajemen proyek pengembangan aplikasi e-learning lengkap dengan WBS, Gantt chart, estimasi biaya, alokasi sumber daya, dan analisis risiko proyek.",
+      "due_date": "2026-11-20",
+      "priority": "High",
+      "status": "In Progress",
+      "progress": 65,
+      "created_at": "2026-10-24"
+    },
+    {
+      "id": "TASK-013",
+      "title": "Implementasi Algoritma Klasifikasi Naive Bayes",
+      "course": "Data Mining",
+      "description": "Implementasikan algoritma Naive Bayes untuk klasifikasi sentiment review produk menggunakan Python dan scikit-learn. Evaluasi performa model dengan confusion matrix, precision, recall, dan F1-score.",
+      "due_date": "2026-11-22",
+      "priority": "High",
+      "status": "In Progress",
+      "progress": 25,
+      "created_at": "2026-10-28"
+    },
+    {
+      "id": "TASK-014",
+      "title": "Normalisasi Database Hingga 3NF",
+      "course": "Basis Data",
+      "description": "Lakukan proses normalisasi tabel database sistem penggajian dari bentuk tidak normal hingga Third Normal Form (3NF). Dokumentasikan setiap tahap normalisasi dengan tabel sebelum dan sesudah.",
+      "due_date": "2026-11-25",
+      "priority": "Medium",
+      "status": "In Progress",
+      "progress": 50,
+      "created_at": "2026-10-29"
+    },
+    {
+      "id": "TASK-015",
+      "title": "Pengujian Black-Box Testing Aplikasi Web",
+      "course": "Rekayasa Perangkat Lunak",
+      "description": "Lakukan pengujian black-box testing pada aplikasi web SIAKAD menggunakan metode equivalence partitioning dan boundary value analysis. Dokumentasikan test case, hasil uji, dan daftar bug yang ditemukan.",
+      "due_date": "2026-11-28",
+      "priority": "Medium",
+      "status": "In Progress",
+      "progress": 20,
+      "created_at": "2026-10-30"
+    },
+    {
+      "id": "TASK-016",
+      "title": "Presentasi Proposal Proyek Akhir",
+      "course": "Manajemen Proyek Sistem Informasi",
+      "description": "Siapkan dan presentasikan proposal proyek akhir pengembangan sistem informasi. Mencakup latar belakang, rumusan masalah, tujuan, metodologi, jadwal, dan anggaran proyek.",
+      "due_date": "2026-11-30",
+      "priority": "High",
+      "status": "To Do",
+      "progress": 0,
+      "created_at": "2026-10-31"
+    },
+    {
+      "id": "TASK-017",
+      "title": "Pembuatan Activity Diagram dan Sequence Diagram",
+      "course": "Analisis dan Perancangan Sistem Informasi",
+      "description": "Buat activity diagram dan sequence diagram untuk 5 proses bisnis utama pada sistem informasi penjualan. Gunakan tools seperti StarUML atau draw.io.",
+      "due_date": "2026-12-02",
+      "priority": "Medium",
+      "status": "To Do",
+      "progress": 0,
+      "created_at": "2026-10-31"
+    },
+    {
+      "id": "TASK-018",
+      "title": "Integrasi REST API dengan Frontend React",
+      "course": "Pemrograman Web",
+      "description": "Integrasikan REST API backend Laravel dengan frontend React.js. Implementasikan fitur autentikasi JWT, fetch data menggunakan Axios, dan state management menggunakan Context API atau Redux.",
+      "due_date": "2026-12-05",
+      "priority": "High",
+      "status": "To Do",
+      "progress": 0,
+      "created_at": "2026-10-31"
+    },
+    {
+      "id": "TASK-019",
+      "title": "Laporan Heuristik Evaluation — Nielsen's 10",
+      "course": "Interaksi Manusia dan Komputer",
+      "description": "Lakukan evaluasi heuristik terhadap antarmuka website e-government menggunakan 10 prinsip heuristik Nielsen. Berikan skor, identifikasi masalah usability, dan rekomendasi perbaikan.",
+      "due_date": "2026-12-08",
+      "priority": "Medium",
+      "status": "To Do",
+      "progress": 0,
+      "created_at": "2026-10-31"
+    },
+    {
+      "id": "TASK-020",
+      "title": "Implementasi Algoritma K-Means Clustering",
+      "course": "Data Mining",
+      "description": "Implementasikan algoritma K-Means clustering untuk segmentasi pelanggan berdasarkan data pembelian. Gunakan metode Elbow untuk menentukan nilai K optimal dan visualisasikan hasil cluster.",
+      "due_date": "2026-12-10",
+      "priority": "High",
+      "status": "To Do",
+      "progress": 0,
+      "created_at": "2026-10-31"
+    },
+    {
+      "id": "TASK-021",
+      "title": "Analisis Value Chain dan Porter's Five Forces",
+      "course": "Sistem Informasi Manajemen",
+      "description": "Lakukan analisis value chain dan Porter's Five Forces pada perusahaan teknologi startup Indonesia. Kaitkan analisis dengan strategi penerapan sistem informasi untuk meningkatkan keunggulan kompetitif.",
+      "due_date": "2026-12-12",
+      "priority": "Low",
+      "status": "To Do",
+      "progress": 0,
+      "created_at": "2026-10-31"
+    },
+    {
+      "id": "TASK-022",
+      "title": "Proyek Akhir — Sistem Informasi Manajemen Kos",
+      "course": "Pemrograman Web",
+      "description": "Bangun sistem informasi manajemen kos berbasis web menggunakan Laravel + MySQL. Fitur: manajemen kamar, penyewa, pembayaran bulanan, laporan, dan notifikasi. Harus memiliki fitur multi-user dengan role admin dan penyewa.",
+      "due_date": "2026-12-20",
+      "priority": "High",
+      "status": "To Do",
+      "progress": 0,
+      "created_at": "2026-10-31"
+    },
+    {
+      "id": "TASK-023",
+      "title": "Review Dokumen Software Requirements Specification",
+      "course": "Rekayasa Perangkat Lunak",
+      "description": "Review dan revisi dokumen SRS aplikasi sistem informasi rumah sakit berdasarkan feedback dari dosen. Pastikan semua requirement tertulis lengkap, konsisten, dan terverifikasi.",
+      "due_date": "2026-12-03",
+      "priority": "Medium",
+      "status": "To Do",
+      "progress": 0,
+      "created_at": "2026-10-31"
+    },
+    {
+      "id": "TASK-024",
+      "title": "Pembuatan Dashboard Analitik dengan Chart.js",
+      "course": "Pemrograman Web",
+      "description": "Buat halaman dashboard analitik interaktif menggunakan HTML, CSS, JavaScript, dan Chart.js. Tampilkan data penjualan bulanan, distribusi produk, dan tren pendapatan dalam bentuk bar chart, pie chart, dan line chart.",
+      "due_date": "2026-11-26",
+      "priority": "Medium",
+      "status": "In Progress",
+      "progress": 70,
+      "created_at": "2026-10-20"
+    },
+    {
+      "id": "TASK-025",
+      "title": "Kuis Online — Struktur Data dan Algoritma",
+      "course": "Rekayasa Perangkat Lunak",
+      "description": "Persiapkan materi dan ikuti kuis online tentang algoritma sorting, searching, dan struktur data (stack, queue, tree, graph). Pelajari kompleksitas waktu dan ruang setiap algoritma.",
+      "due_date": "2026-11-03",
+      "priority": "Low",
+      "status": "Completed",
+      "progress": 100,
+      "created_at": "2026-10-25"
+    },
+    {
+      "id": "TASK-026",
+      "title": "Dokumentasi API Menggunakan Swagger/OpenAPI",
+      "course": "Rekayasa Perangkat Lunak",
+      "description": "Buat dokumentasi lengkap REST API menggunakan Swagger UI / OpenAPI 3.0 untuk backend sistem informasi akademik. Dokumentasikan semua endpoint, parameter, request body, dan response schema.",
+      "due_date": "2026-12-15",
+      "priority": "Low",
+      "status": "To Do",
+      "progress": 0,
+      "created_at": "2026-10-31"
+    },
+    {
+      "id": "TASK-027",
+      "title": "Implementasi View, Stored Procedure, dan Trigger MySQL",
+      "course": "Basis Data",
+      "description": "Implementasikan database views untuk laporan, stored procedure untuk proses bisnis utama, dan trigger untuk menjaga integritas data pada database sistem penjualan online.",
+      "due_date": "2026-12-01",
+      "priority": "High",
+      "status": "In Progress",
+      "progress": 35,
+      "created_at": "2026-10-29"
+    },
+    {
+      "id": "TASK-028",
+      "title": "Laporan Akhir Studi Kelayakan Sistem",
+      "course": "Analisis dan Perancangan Sistem Informasi",
+      "description": "Buat laporan studi kelayakan sistem informasi yang mencakup kelayakan teknis, operasional, ekonomi, dan hukum. Sertakan analisis cost-benefit dan ROI implementasi sistem.",
+      "due_date": "2026-12-18",
+      "priority": "High",
+      "status": "To Do",
+      "progress": 0,
+      "created_at": "2026-10-31"
+    },
+    {
+      "id": "TASK-029",
+      "title": "Implementasi Decision Tree untuk Prediksi Kelulusan",
+      "course": "Data Mining",
+      "description": "Bangun model Decision Tree menggunakan algoritma C4.5 atau CART untuk memprediksi kelulusan mahasiswa berdasarkan data akademik. Visualisasikan pohon keputusan dan evaluasi akurasi model dengan cross-validation.",
+      "due_date": "2026-12-08",
+      "priority": "Medium",
+      "status": "To Do",
+      "progress": 0,
+      "created_at": "2026-10-31"
+    },
+    {
+      "id": "TASK-030",
+      "title": "Presentasi Proyek Akhir dan Demo Aplikasi",
+      "course": "Manajemen Proyek Sistem Informasi",
+      "description": "Siapkan presentasi akhir proyek pengembangan sistem informasi lengkap dengan demo aplikasi berjalan. Buat slide profesional yang mencakup latar belakang, solusi, arsitektur sistem, fitur, dan evaluasi proyek.",
+      "due_date": "2026-12-22",
+      "priority": "High",
+      "status": "To Do",
+      "progress": 0,
+      "created_at": "2026-10-31"
+    }
+  ]
+}

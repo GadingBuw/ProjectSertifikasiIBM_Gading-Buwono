@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Task Manager — Sistem Informasi</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-logo">
+        <span class="logo-icon">📚</span>
+        <span class="logo-text">TaskManager</span>
+      </div>
+      <button class="sidebar-toggle" id="sidebarToggle" title="Toggle sidebar">&#9776;</button>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="#" class="nav-item active" data-view="dashboard">
+        <span class="nav-icon">🏠</span><span class="nav-label">Dashboard</span>
+      </a>
+      <a href="#" class="nav-item" data-view="tasks">
+        <span class="nav-icon">📋</span><span class="nav-label">Daftar Tugas</span>
+      </a>
+      <a href="#" class="nav-item" data-view="calendar">
+        <span class="nav-icon">📅</span><span class="nav-label">Kalender</span>
+      </a>
+      <a href="#" class="nav-item" data-view="analytics">
+        <span class="nav-icon">📊</span><span class="nav-label">Statistik</span>
+      </a>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="student-info">
+        <div class="student-avatar">GS</div>
+        <div>
+          <div class="student-name">Gading Buwono</div>
+          <div class="student-nim">Sistem Informasi</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main class="main-content" id="mainContent">
+
+    <!-- TOP BAR -->
+    <header class="topbar">
+      <div class="topbar-left">
+        <button class="menu-btn" id="menuBtn">&#9776;</button>
+        <div class="topbar-title" id="topbarTitle">Dashboard</div>
+      </div>
+      <div class="topbar-right">
+        <div class="search-bar">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="globalSearch" placeholder="Cari tugas..." autocomplete="off" />
+        </div>
+        <button class="btn btn-primary" id="addTaskBtn">+ Tambah Tugas</button>
+      </div>
+    </header>
+
+    <!-- ===== VIEW: DASHBOARD ===== -->
+    <section class="view active" id="view-dashboard">
+      <div class="section-title">
+        <h2>Dashboard</h2>
+        <p class="section-subtitle">Ringkasan aktivitas akademik Anda</p>
+      </div>
+
+      <!-- STAT CARDS -->
+      <div class="stats-grid">
+        <div class="stat-card total">
+          <div class="stat-icon">📋</div>
+          <div class="stat-info">
+            <div class="stat-value" id="statTotal">0</div>
+            <div class="stat-label">Total Tugas</div>
+          </div>
+        </div>
+        <div class="stat-card completed">
+          <div class="stat-icon">✅</div>
+          <div class="stat-info">
+            <div class="stat-value" id="statCompleted">0</div>
+            <div class="stat-label">Selesai</div>
+          </div>
+        </div>
+        <div class="stat-card in-progress">
+          <div class="stat-icon">⏳</div>
+          <div class="stat-info">
+            <div class="stat-value" id="statInProgress">0</div>
+            <div class="stat-label">Sedang Dikerjakan</div>
+          </div>
+        </div>
+        <div class="stat-card todo">
+          <div class="stat-icon">📌</div>
+          <div class="stat-info">
+            <div class="stat-value" id="statTodo">0</div>
+            <div class="stat-label">Belum Dimulai</div>
+          </div>
+        </div>
+        <div class="stat-card overdue">
+          <div class="stat-icon">🚨</div>
+          <div class="stat-info">
+            <div class="stat-value" id="statOverdue">0</div>
+            <div class="stat-label">Terlambat</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROGRESS OVERVIEW -->
+      <div class="dashboard-row">
+        <div class="card">
+          <div class="card-header">
+            <h3>Tugas Mendatang</h3>
+            <span class="badge-info" id="upcomingCount">0 tugas</span>
+          </div>
+          <div id="upcomingList" class="task-mini-list"></div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <h3>Tugas Terlambat</h3>
+            <span class="badge-danger" id="overdueCount">0 tugas</span>
+          </div>
+          <div id="overdueList" class="task-mini-list"></div>
+        </div>
+      </div>
+
+      <!-- COURSE BREAKDOWN -->
+      <div class="card mt-2">
+        <div class="card-header">
+          <h3>Progress per Mata Kuliah</h3>
+        </div>
+        <div id="courseBreakdown" class="course-breakdown"></div>
+      </div>
+    </section>
+
+    <!-- ===== VIEW: TASK LIST ===== -->
+    <section class="view" id="view-tasks">
+      <div class="section-title">
+        <h2>Daftar Tugas</h2>
+        <p class="section-subtitle">Kelola semua tugas akademik Anda</p>
+      </div>
+
+      <!-- FILTER BAR -->
+      <div class="filter-bar">
+        <select id="filterStatus" class="filter-select">
+          <option value="">Semua Status</option>
+          <option value="To Do">To Do</option>
+          <option value="In Progress">In Progress</option>
+          <option value="Completed">Completed</option>
+        </select>
+        <select id="filterPriority" class="filter-select">
+          <option value="">Semua Prioritas</option>
+          <option value="High">High</option>
+          <option value="Medium">Medium</option>
+          <option value="Low">Low</option>
+        </select>
+        <select id="filterCourse" class="filter-select">
+          <option value="">Semua Mata Kuliah</option>
+        </select>
+        <select id="sortBy" class="filter-select">
+          <option value="due_date">Urutkan: Deadline</option>
+          <option value="priority">Urutkan: Prioritas</option>
+          <option value="progress">Urutkan: Progress</option>
+          <option value="created_at">Urutkan: Terbaru</option>
+        </select>
+        <button class="btn btn-ghost" id="clearFilters">Reset Filter</button>
+      </div>
+
+      <!-- TASK TABLE -->
+      <div class="card">
+        <div id="taskTableWrap">
+          <table class="task-table" id="taskTable">
+            <thead>
+              <tr>
+                <th>Judul Tugas</th>
+                <th>Mata Kuliah</th>
+                <th>Deadline</th>
+                <th>Prioritas</th>
+                <th>Status</th>
+                <th>Progress</th>
+                <th>Aksi</th>
+              </tr>
+            </thead>
+            <tbody id="taskTableBody"></tbody>
+          </table>
+        </div>
+        <div class="table-footer">
+          <span id="taskCount">Menampilkan 0 tugas</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== VIEW: CALENDAR ===== -->
+    <section class="view" id="view-calendar">
+      <div class="section-title">
+        <h2>Kalender Akademik</h2>
+        <p class="section-subtitle">Pantau deadline tugas dalam tampilan kalender</p>
+      </div>
+      <div class="card">
+        <div class="calendar-nav">
+          <button class="btn btn-ghost" id="calPrev">&#8592; Sebelumnya</button>
+          <h3 id="calMonthYear"></h3>
+          <button class="btn btn-ghost" id="calNext">Berikutnya &#8594;</button>
+        </div>
+        <div class="calendar-grid" id="calendarGrid"></div>
+        <div class="calendar-legend">
+          <span class="legend-item"><span class="dot dot-high"></span>High</span>
+          <span class="legend-item"><span class="dot dot-medium"></span>Medium</span>
+          <span class="legend-item"><span class="dot dot-low"></span>Low</span>
+          <span class="legend-item"><span class="dot dot-completed"></span>Selesai</span>
+          <span class="legend-item"><span class="dot dot-overdue"></span>Terlambat</span>
+        </div>
+      </div>
+      <div class="card mt-2" id="calDayDetail" style="display:none;">
+        <div class="card-header">
+          <h3 id="calDayTitle">Tugas pada tanggal ini</h3>
+          <button class="btn btn-ghost" id="calDayClose">✕ Tutup</button>
+        </div>
+        <div id="calDayList"></div>
+      </div>
+    </section>
+
+    <!-- ===== VIEW: ANALYTICS ===== -->
+    <section class="view" id="view-analytics">
+      <div class="section-title">
+        <h2>Statistik & Analitik</h2>
+        <p class="section-subtitle">Visualisasi data tugas dan progress akademik Anda</p>
+      </div>
+      <div class="analytics-grid">
+        <div class="card">
+          <div class="card-header"><h3>Distribusi Status</h3></div>
+          <div class="chart-wrap"><svg id="chartStatus" viewBox="0 0 220 220"></svg></div>
+          <div id="chartStatusLegend" class="chart-legend"></div>
+        </div>
+        <div class="card">
+          <div class="card-header"><h3>Distribusi Prioritas</h3></div>
+          <div class="chart-wrap"><svg id="chartPriority" viewBox="0 0 220 220"></svg></div>
+          <div id="chartPriorityLegend" class="chart-legend"></div>
+        </div>
+      </div>
+      <div class="card mt-2">
+        <div class="card-header"><h3>Tugas per Mata Kuliah</h3></div>
+        <div id="chartCourseBar" class="bar-chart"></div>
+      </div>
+      <div class="card mt-2">
+        <div class="card-header"><h3>Ringkasan Lengkap</h3></div>
+        <div id="analyticsSummary" class="analytics-summary"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== MODAL: ADD / EDIT TASK ===== -->
+  <div class="modal-overlay" id="taskModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 id="modalTitle">Tambah Tugas Baru</h3>
+        <button class="modal-close" id="modalClose">✕</button>
+      </div>
+      <form id="taskForm" novalidate>
+        <input type="hidden" id="fieldId" />
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fieldTitle">Judul Tugas <span class="required">*</span></label>
+            <input type="text" id="fieldTitle" placeholder="Nama tugas..." required />
+            <span class="field-error" id="errTitle"></span>
+          </div>
+          <div class="form-group">
+            <label for="fieldCourse">Mata Kuliah <span class="required">*</span></label>
+            <input type="text" id="fieldCourse" list="courseList" placeholder="Nama mata kuliah..." required />
+            <datalist id="courseList"></datalist>
+            <span class="field-error" id="errCourse"></span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="fieldDesc">Deskripsi</label>
+          <textarea id="fieldDesc" rows="3" placeholder="Deskripsi singkat tugas..."></textarea>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fieldDue">Deadline <span class="required">*</span></label>
+            <input type="date" id="fieldDue" required />
+            <span class="field-error" id="errDue"></span>
+          </div>
+          <div class="form-group">
+            <label for="fieldPriority">Prioritas <span class="required">*</span></label>
+            <select id="fieldPriority" required>
+              <option value="">-- Pilih --</option>
+              <option value="Low">Low</option>
+              <option value="Medium">Medium</option>
+              <option value="High">High</option>
+            </select>
+            <span class="field-error" id="errPriority"></span>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fieldStatus">Status <span class="required">*</span></label>
+            <select id="fieldStatus" required>
+              <option value="">-- Pilih --</option>
+              <option value="To Do">To Do</option>
+              <option value="In Progress">In Progress</option>
+              <option value="Completed">Completed</option>
+            </select>
+            <span class="field-error" id="errStatus"></span>
+          </div>
+          <div class="form-group">
+            <label for="fieldProgress">Progress: <span id="progressVal">0</span>%</label>
+            <input type="range" id="fieldProgress" min="0" max="100" step="5" value="0" />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-ghost" id="modalCancel">Batal</button>
+          <button type="submit" class="btn btn-primary" id="modalSave">Simpan Tugas</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===== MODAL: CONFIRM DELETE ===== -->
+  <div class="modal-overlay" id="deleteModal">
+    <div class="modal modal-sm">
+      <div class="modal-header">
+        <h3>Hapus Tugas</h3>
+        <button class="modal-close" id="deleteModalClose">✕</button>
+      </div>
+      <p class="modal-body-text">Apakah Anda yakin ingin menghapus tugas ini? Tindakan ini tidak dapat dibatalkan.</p>
+      <div class="modal-footer">
+        <button class="btn btn-ghost" id="deleteCancelBtn">Batal</button>
+        <button class="btn btn-danger" id="deleteConfirmBtn">Hapus</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== TOAST NOTIFICATION ===== -->
+  <div id="toast" class="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
