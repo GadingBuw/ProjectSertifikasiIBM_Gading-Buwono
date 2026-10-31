@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -17,7 +18,8 @@
       </div>
       <button class="sidebar-toggle" id="sidebarToggle" title="Toggle sidebar">&#9776;</button>
     </div>
-    <nav class="sidebar-nav">
+
+    <nav class="sidebar-nav" aria-label="Navigasi utama">
       <a href="#" class="nav-item active" data-view="dashboard">
         <span class="nav-icon">🏠</span><span class="nav-label">Dashboard</span>
       </a>
@@ -31,6 +33,7 @@
         <span class="nav-icon">📊</span><span class="nav-label">Statistik</span>
       </a>
     </nav>
+
     <div class="sidebar-footer">
       <div class="student-info">
         <div class="student-avatar">GS</div>
@@ -51,12 +54,26 @@
         <button class="menu-btn" id="menuBtn">&#9776;</button>
         <div class="topbar-title" id="topbarTitle">Dashboard</div>
       </div>
+
       <div class="topbar-right">
         <div class="search-bar">
           <span class="search-icon">🔍</span>
-          <input type="text" id="globalSearch" placeholder="Cari tugas..." autocomplete="off" />
+          <input
+            type="text"
+            id="globalSearch"
+            placeholder="Cari tugas..."
+            autocomplete="off"
+            aria-label="Cari tugas berdasarkan judul"
+          />
         </div>
-        <button class="btn btn-primary" id="addTaskBtn">+ Tambah Tugas</button>
+        <button
+          class="btn btn-primary"
+          id="addTaskBtn"
+          type="button"
+          aria-label="Tambah tugas baru"
+        >
+          + Tambah Tugas
+        </button>
       </div>
     </header>
 
@@ -65,6 +82,12 @@
       <div class="section-title">
         <h2>Dashboard</h2>
         <p class="section-subtitle">Ringkasan aktivitas akademik Anda</p>
+
+        <!-- MODIFIKASI: CATATAN FOKUS HARI INI -->
+        <div class="dashboard-note" role="note">
+          <strong>Fokus hari ini:</strong>
+          Periksa deadline terdekat dan perbarui progres tugas agar aktivitas kuliah tetap terorganisasi.
+        </div>
       </div>
 
       <!-- STAT CARDS -->
@@ -76,6 +99,7 @@
             <div class="stat-label">Total Tugas</div>
           </div>
         </div>
+
         <div class="stat-card completed">
           <div class="stat-icon">✅</div>
           <div class="stat-info">
@@ -83,6 +107,7 @@
             <div class="stat-label">Selesai</div>
           </div>
         </div>
+
         <div class="stat-card in-progress">
           <div class="stat-icon">⏳</div>
           <div class="stat-info">
@@ -90,6 +115,7 @@
             <div class="stat-label">Sedang Dikerjakan</div>
           </div>
         </div>
+
         <div class="stat-card todo">
           <div class="stat-icon">📌</div>
           <div class="stat-info">
@@ -97,6 +123,7 @@
             <div class="stat-label">Belum Dimulai</div>
           </div>
         </div>
+
         <div class="stat-card overdue">
           <div class="stat-icon">🚨</div>
           <div class="stat-info">
@@ -115,6 +142,7 @@
           </div>
           <div id="upcomingList" class="task-mini-list"></div>
         </div>
+
         <div class="card">
           <div class="card-header">
             <h3>Tugas Terlambat</h3>
@@ -148,21 +176,25 @@
           <option value="In Progress">In Progress</option>
           <option value="Completed">Completed</option>
         </select>
+
         <select id="filterPriority" class="filter-select">
           <option value="">Semua Prioritas</option>
           <option value="High">High</option>
           <option value="Medium">Medium</option>
           <option value="Low">Low</option>
         </select>
+
         <select id="filterCourse" class="filter-select">
           <option value="">Semua Mata Kuliah</option>
         </select>
+
         <select id="sortBy" class="filter-select">
           <option value="due_date">Urutkan: Deadline</option>
           <option value="priority">Urutkan: Prioritas</option>
           <option value="progress">Urutkan: Progress</option>
           <option value="created_at">Urutkan: Terbaru</option>
         </select>
+
         <button class="btn btn-ghost" id="clearFilters">Reset Filter</button>
       </div>
 
@@ -184,6 +216,7 @@
             <tbody id="taskTableBody"></tbody>
           </table>
         </div>
+
         <div class="table-footer">
           <span id="taskCount">Menampilkan 0 tugas</span>
         </div>
@@ -196,13 +229,16 @@
         <h2>Kalender Akademik</h2>
         <p class="section-subtitle">Pantau deadline tugas dalam tampilan kalender</p>
       </div>
+
       <div class="card">
         <div class="calendar-nav">
           <button class="btn btn-ghost" id="calPrev">&#8592; Sebelumnya</button>
           <h3 id="calMonthYear"></h3>
           <button class="btn btn-ghost" id="calNext">Berikutnya &#8594;</button>
         </div>
+
         <div class="calendar-grid" id="calendarGrid"></div>
+
         <div class="calendar-legend">
           <span class="legend-item"><span class="dot dot-high"></span>High</span>
           <span class="legend-item"><span class="dot dot-medium"></span>Medium</span>
@@ -211,6 +247,7 @@
           <span class="legend-item"><span class="dot dot-overdue"></span>Terlambat</span>
         </div>
       </div>
+
       <div class="card mt-2" id="calDayDetail" style="display:none;">
         <div class="card-header">
           <h3 id="calDayTitle">Tugas pada tanggal ini</h3>
@@ -226,24 +263,40 @@
         <h2>Statistik & Analitik</h2>
         <p class="section-subtitle">Visualisasi data tugas dan progress akademik Anda</p>
       </div>
+
       <div class="analytics-grid">
         <div class="card">
-          <div class="card-header"><h3>Distribusi Status</h3></div>
-          <div class="chart-wrap"><svg id="chartStatus" viewBox="0 0 220 220"></svg></div>
+          <div class="card-header">
+            <h3>Distribusi Status</h3>
+          </div>
+          <div class="chart-wrap">
+            <svg id="chartStatus" viewBox="0 0 220 220"></svg>
+          </div>
           <div id="chartStatusLegend" class="chart-legend"></div>
         </div>
+
         <div class="card">
-          <div class="card-header"><h3>Distribusi Prioritas</h3></div>
-          <div class="chart-wrap"><svg id="chartPriority" viewBox="0 0 220 220"></svg></div>
+          <div class="card-header">
+            <h3>Distribusi Prioritas</h3>
+          </div>
+          <div class="chart-wrap">
+            <svg id="chartPriority" viewBox="0 0 220 220"></svg>
+          </div>
           <div id="chartPriorityLegend" class="chart-legend"></div>
         </div>
       </div>
+
       <div class="card mt-2">
-        <div class="card-header"><h3>Tugas per Mata Kuliah</h3></div>
+        <div class="card-header">
+          <h3>Tugas per Mata Kuliah</h3>
+        </div>
         <div id="chartCourseBar" class="bar-chart"></div>
       </div>
+
       <div class="card mt-2">
-        <div class="card-header"><h3>Ringkasan Lengkap</h3></div>
+        <div class="card-header">
+          <h3>Ringkasan Lengkap</h3>
+        </div>
         <div id="analyticsSummary" class="analytics-summary"></div>
       </div>
     </section>
@@ -257,14 +310,17 @@
         <h3 id="modalTitle">Tambah Tugas Baru</h3>
         <button class="modal-close" id="modalClose">✕</button>
       </div>
+
       <form id="taskForm" novalidate>
         <input type="hidden" id="fieldId" />
+
         <div class="form-row">
           <div class="form-group">
             <label for="fieldTitle">Judul Tugas <span class="required">*</span></label>
             <input type="text" id="fieldTitle" placeholder="Nama tugas..." required />
             <span class="field-error" id="errTitle"></span>
           </div>
+
           <div class="form-group">
             <label for="fieldCourse">Mata Kuliah <span class="required">*</span></label>
             <input type="text" id="fieldCourse" list="courseList" placeholder="Nama mata kuliah..." required />
@@ -272,16 +328,19 @@
             <span class="field-error" id="errCourse"></span>
           </div>
         </div>
+
         <div class="form-group">
           <label for="fieldDesc">Deskripsi</label>
           <textarea id="fieldDesc" rows="3" placeholder="Deskripsi singkat tugas..."></textarea>
         </div>
+
         <div class="form-row">
           <div class="form-group">
             <label for="fieldDue">Deadline <span class="required">*</span></label>
             <input type="date" id="fieldDue" required />
             <span class="field-error" id="errDue"></span>
           </div>
+
           <div class="form-group">
             <label for="fieldPriority">Prioritas <span class="required">*</span></label>
             <select id="fieldPriority" required>
@@ -293,6 +352,7 @@
             <span class="field-error" id="errPriority"></span>
           </div>
         </div>
+
         <div class="form-row">
           <div class="form-group">
             <label for="fieldStatus">Status <span class="required">*</span></label>
@@ -304,11 +364,13 @@
             </select>
             <span class="field-error" id="errStatus"></span>
           </div>
+
           <div class="form-group">
             <label for="fieldProgress">Progress: <span id="progressVal">0</span>%</label>
             <input type="range" id="fieldProgress" min="0" max="100" step="5" value="0" />
           </div>
         </div>
+
         <div class="modal-footer">
           <button type="button" class="btn btn-ghost" id="modalCancel">Batal</button>
           <button type="submit" class="btn btn-primary" id="modalSave">Simpan Tugas</button>
@@ -324,7 +386,11 @@
         <h3>Hapus Tugas</h3>
         <button class="modal-close" id="deleteModalClose">✕</button>
       </div>
-      <p class="modal-body-text">Apakah Anda yakin ingin menghapus tugas ini? Tindakan ini tidak dapat dibatalkan.</p>
+
+      <p class="modal-body-text">
+        Apakah Anda yakin ingin menghapus tugas ini? Tindakan ini tidak dapat dibatalkan.
+      </p>
+
       <div class="modal-footer">
         <button class="btn btn-ghost" id="deleteCancelBtn">Batal</button>
         <button class="btn btn-danger" id="deleteConfirmBtn">Hapus</button>
